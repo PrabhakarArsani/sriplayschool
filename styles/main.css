@@ -2604,6 +2604,8 @@ h1:active, h2:active, h3:active, .about-heading:active, .gallery-heading:active,
   position: relative;
   z-index: 10;
   box-shadow: 0 2px 8px #FFD93D22;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 .hero-ticker-track {
   display: inline-block;
@@ -2613,12 +2615,21 @@ h1:active, h2:active, h3:active, .about-heading:active, .gallery-heading:active,
   font-weight: 700;
   color: #232946;
   padding-left: 100vw;
-  animation: tickerScroll 18s linear infinite;
+  animation: tickerScroll 35s linear infinite;
   letter-spacing: 1px;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
 }
 @keyframes tickerScroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100vw); }
+  0% { 
+    transform: translateX(0) translateZ(0);
+    -webkit-transform: translateX(0) translateZ(0);
+  }
+  100% { 
+    transform: translateX(-300vw) translateZ(0);
+    -webkit-transform: translateX(-300vw) translateZ(0);
+  }
 }
 @media (max-width: 600px) {
   .hero-ticker-bar {
@@ -2627,19 +2638,19 @@ h1:active, h2:active, h3:active, .about-heading:active, .gallery-heading:active,
   .hero-ticker-track {
     font-size: 0.95rem;
     padding-left: 120vw;
-    animation: tickerScroll 12s linear infinite;
+    animation: tickerScroll 28s linear infinite;
   }
 }
 
 @media (max-width: 480px) {
   .hero-ticker-track {
-    animation: tickerScroll 8s linear infinite;
+    animation: tickerScroll 25s linear infinite;
   }
 }
 
 @media (max-width: 360px) {
   .hero-ticker-track {
-    animation: tickerScroll 6s linear infinite;
+    animation: tickerScroll 22s linear infinite;
   }
 }
 
